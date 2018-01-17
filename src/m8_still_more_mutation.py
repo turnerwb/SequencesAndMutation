@@ -115,7 +115,7 @@ def run_test_MUTATE_delete_negatives():
                          correct_argument_value_after_function_call)
 
 
-def MUTATE_delete_negatives(numbers):
+def MUTATE_delete_negatives(numbers, startingindex = 0):
     """
     MUTATES the given list of numbers so that each negative number
     in the list is DELETED from the list.
@@ -142,13 +142,22 @@ def MUTATE_delete_negatives(numbers):
     #       Take a stab at this problem,
     #       then see the solutions posted on Piazza.
     #       See those solutions even if your approach passes the tests.
+    """
     k = 0
     while k < len(numbers):
         if numbers[k] < 0:
             numbers.remove(numbers[k])
         else:
             k += 1
-
+    """
+    if numbers[startingindex] < 0:
+        numbers.remove(numbers[startingindex])
+    else:
+        startingindex += 1
+    if startingindex >= len(numbers):
+        return None
+    else:
+        MUTATE_delete_negatives(numbers, startingindex)
 
 # ----------------------------------------------------------------------
 # If this module is running at the top level (as opposed to being
